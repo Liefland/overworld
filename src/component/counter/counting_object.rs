@@ -66,11 +66,11 @@ impl CountingObject {
     }
 
     pub fn workers(&mut self) -> u64 {
-        *self.counters.get_mut().deref() as u64
+        *self.counters.get_mut().deref()
     }
 
     pub fn refund_cost(&mut self) -> u64 {
-        let workers = self.workers() - 1 as u64;
+        let workers = self.workers() - 1u64;
 
         self.calc_buy_cost(workers) * self.sell_cost.get_mut().deref() / 100
     }
@@ -111,13 +111,12 @@ impl CountingObject {
     }
 
     pub fn sum(&mut self) -> u64 {
-        (self.counters.get_mut().deref() * self.increments_by.get_mut().deref() / 100)
-            * self.effectiveness.get_mut().deref()
+        ((self.counters.get_mut().deref() * self.increments_by.get_mut().deref())
+            * self.effectiveness.get_mut().deref())
             / 100
     }
 
     fn calc_buy_cost(&mut self, workers: u64) -> u64 {
-        self.initial_cost.get_mut().deref() * ((workers as u64) * self.buy_cost.get_mut().deref())
-            / 100
+        self.initial_cost.get_mut().deref() * (workers * self.buy_cost.get_mut().deref()) / 100
     }
 }
