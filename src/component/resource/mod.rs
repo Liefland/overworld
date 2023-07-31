@@ -3,7 +3,7 @@ use std::sync::atomic::AtomicU64;
 use std::sync::atomic::Ordering::Relaxed;
 
 #[derive(Debug)]
-struct GameResource {
+pub struct GameResource {
     pub resource_name: String,
     pub resource_value: AtomicU64,
 }
