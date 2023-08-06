@@ -3,9 +3,9 @@ name = "incr_lib"
 version = "0.1.0"
 edition = "2021"
 description = "A library for adding game systems useful for incremental and management games"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license= "MIT OR Apache-2.0"
+authors = []
+publish = false
 
 [dependencies]
 rand = "0.8.5"
-serde = { version = "1.0.174", features = ["derive"] }
