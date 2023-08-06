@@ -30,13 +30,16 @@ impl Die {
     }
 
     pub fn roll(&self) -> u8 {
-        match self.rng.clone() {
-            None => self.roll_with_rng(rand::thread_rng()),
-            Some(rng) => self.roll_with_rng(rng),
+        if self.sides == 0 {
+            return 0;
         }
-    }
 
-    pub fn roll_with_rng(&self, mut rng: rand::rngs::ThreadRng) -> u8 {
+        if self.rng.is_none() {
+            let mut rng = rand::thread_rng();
+            return rng.gen_range(self.range());
+        }
+
+        let mut rng = self.rng.clone().unwrap();
         rng.gen_range(self.range())
     }
 }
@@ -45,4 +48,28 @@ impl Display for Die {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         write!(f, "1d{}", self.sides)
     }
+}
+
+#[test]
+fn test_range() {
+    let d6 = Die::new(6);
+    let range = d6.range();
+
+    assert_eq!(range, 1..=6);
+}
+
+#[test]
+fn test_roll() {
+    let d6 = Die::new(6);
+    let result = d6.roll();
+
+    assert!((1..=6).contains(&result));
+}
+
+#[test]
+fn test_to_string() {
+    let d6 = Die::new(6);
+    let result = d6.to_string();
+
+    assert_eq!(result, "1d6");
 }
