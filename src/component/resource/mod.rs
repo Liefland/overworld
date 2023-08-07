@@ -65,3 +65,36 @@ impl Display for GameResource {
         )
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::component::resource::{GameResource, Resource};
+
+    #[test]
+    fn test_resource() {
+        let mut resource = GameResource::new("Test Resource".to_string(), 100);
+
+        assert_eq!(resource.name(), "Test Resource");
+        assert_eq!(resource.value(), 100);
+
+        resource.add(100);
+        assert_eq!(resource.value(), 200);
+
+        resource
+            .remove(100)
+            .expect("test failure - cannot remove 100 from 200?");
+        assert_eq!(resource.value(), 100);
+
+        resource
+            .remove(100)
+            .expect("test failure - cannot remove 100 from 100?");
+        assert_eq!(resource.value(), 0);
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_resource_panic() {
+        let mut resource = GameResource::new("Test Resource".to_string(), 0);
+        resource.remove(100).unwrap();
+    }
+}
