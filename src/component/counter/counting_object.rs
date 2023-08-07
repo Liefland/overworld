@@ -151,3 +151,73 @@ impl CountingObject {
         self.initial_cost.get_mut().deref() * (workers * self.buy_cost.get_mut().deref()) / 100
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::component::counter::counting_object::CountingObject;
+    use std::sync::atomic::AtomicU64;
+
+    fn new_counting_object() -> CountingObject {
+        CountingObject::new(
+            String::from("test"),
+            AtomicU64::new(500),
+            AtomicU64::new(100),
+            AtomicU64::new(100),
+            AtomicU64::new(100),
+        )
+    }
+
+    #[test]
+    fn test_counting_object_empty() {
+        let mut co = new_counting_object();
+
+        assert_eq!("test", co.get_name());
+        assert_eq!(0, co.workers());
+        assert_eq!(0, co.sum());
+    }
+
+    #[test]
+    fn test_counting_object_buy_success() {
+        let mut co = new_counting_object();
+
+        for expected_workers in 1..10 {
+            let bc = co.buy_cost();
+            if expected_workers == 1 {
+                assert_eq!(100, bc);
+            }
+            assert_eq!(bc, co.perform_buy(1000).unwrap());
+
+            assert_eq!(expected_workers, co.workers());
+            assert_eq!(expected_workers * 500, co.sum());
+        }
+
+        assert!(!co.can_afford_buy(899));
+        assert!(co.can_afford_buy(900));
+    }
+
+    #[test]
+    fn test_counting_object_buy_fail() {
+        let mut co = new_counting_object();
+
+        assert!(co.perform_buy(0).is_none());
+        assert_eq!(0, co.workers());
+    }
+
+    #[test]
+    fn test_counting_object_refund() {
+        let mut co = new_counting_object();
+
+        for _ in 0..10 {
+            co.perform_buy(1000).unwrap();
+        }
+
+        assert_eq!(10, co.workers());
+
+        assert_eq!(900, co.refund_cost());
+        let refund = co.perform_sell();
+        assert_eq!(900, refund);
+        assert_eq!(9, co.workers());
+
+        assert_eq!(800, co.refund_cost());
+    }
+}
