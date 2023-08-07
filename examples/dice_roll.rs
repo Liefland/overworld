@@ -1,5 +1,4 @@
-use incr_lib::component::roll::dice::Dice;
-use incr_lib::component::roll::die::Die;
+use incr_lib::component::roll::{Dice, Die};
 
 fn main() {
     {
