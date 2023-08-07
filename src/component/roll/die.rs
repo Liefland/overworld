@@ -50,26 +50,31 @@ impl Display for Die {
     }
 }
 
-#[test]
-fn test_range() {
-    let d6 = Die::new(6);
-    let range = d6.range();
+#[cfg(test)]
+mod tests {
+    use crate::component::roll::Die;
 
-    assert_eq!(range, 1..=6);
-}
+    #[test]
+    fn test_range() {
+        let d6 = Die::new(6);
+        let range = d6.range();
 
-#[test]
-fn test_roll() {
-    let d6 = Die::new(6);
-    let result = d6.roll();
+        assert_eq!(range, 1..=6);
+    }
 
-    assert!((1..=6).contains(&result));
-}
+    #[test]
+    fn test_roll() {
+        let d6 = Die::new(6);
+        let result = d6.roll();
 
-#[test]
-fn test_to_string() {
-    let d6 = Die::new(6);
-    let result = d6.to_string();
+        assert!((1..=6).contains(&result));
+    }
 
-    assert_eq!(result, "1d6");
+    #[test]
+    fn test_to_string() {
+        let d6 = Die::new(6);
+        let result = d6.to_string();
+
+        assert_eq!(result, "1d6");
+    }
 }

@@ -172,34 +172,40 @@ impl Display for Dice {
     }
 }
 
-#[test]
-fn test_range() {
-    let dice = Dice::group(2, 6);
-    let range = dice.range();
+#[cfg(test)]
+mod tests {
+    use crate::component::roll::dice::Dice;
+    use crate::component::roll::die::Die;
 
-    assert_eq!(range, 2..=12);
-}
+    #[test]
+    fn test_range() {
+        let dice = Dice::group(2, 6);
+        let range = dice.range();
 
-#[test]
-fn test_roll() {
-    let dice = Dice::group(2, 6);
-    let roll = dice.roll();
+        assert_eq!(range, 2..=12);
+    }
 
-    assert!((2..=12).contains(&roll));
-}
+    #[test]
+    fn test_roll() {
+        let dice = Dice::group(2, 6);
+        let roll = dice.roll();
 
-#[test]
-fn test_group_to_string() {
-    let dice = Dice::group(2, 6);
-    let string = dice.to_string();
+        assert!((2..=12).contains(&roll));
+    }
 
-    assert_eq!(string, "2d6");
-}
+    #[test]
+    fn test_group_to_string() {
+        let dice = Dice::group(2, 6);
+        let string = dice.to_string();
 
-#[test]
-fn test_mixed_group_to_string() {
-    let dice = Dice::new(vec![Die::new(20), Die::new(6), Die::new(6), Die::new(8)]);
-    let string = dice.to_string();
+        assert_eq!(string, "2d6");
+    }
 
-    assert_eq!(string, "1d20, 1d8, 2d6");
+    #[test]
+    fn test_mixed_group_to_string() {
+        let dice = Dice::new(vec![Die::new(20), Die::new(6), Die::new(6), Die::new(8)]);
+        let string = dice.to_string();
+
+        assert_eq!(string, "1d20, 1d8, 2d6");
+    }
 }
