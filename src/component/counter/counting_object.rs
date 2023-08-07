@@ -154,7 +154,7 @@ impl CountingObject {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::counter::counting_object::CountingObject;
+    use crate::component::counter::CountingObject;
     use std::sync::atomic::AtomicU64;
 
     fn new_counting_object() -> CountingObject {

@@ -9,3 +9,11 @@ publish = false
 
 [dependencies]
 rand = "0.8.5"
+
+[dependencies.serde]
+version = "1.0.174"
+optional = true
+features = ["derive"]
+
+[features]
+default = ["serde"]

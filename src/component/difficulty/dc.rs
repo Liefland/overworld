@@ -2,11 +2,13 @@ use crate::component::difficulty::RollStatus;
 use crate::component::roll::Dice;
 
 #[derive(Debug, Clone)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct DifficultyClass {
     dc: u64,
 }
 
 #[derive(Debug, Clone)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct DifficultyClassResult {
     /// Whether the roll was a success or not.
     pub success: bool,

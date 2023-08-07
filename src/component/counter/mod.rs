@@ -1,1 +1,3 @@
-pub mod counting_object;
+mod counting_object;
+
+pub use counting_object::CountingObject;
