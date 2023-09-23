@@ -9,7 +9,7 @@ repository.workspace = true
 homepage.workspace = true
 categories.workspace = true
 keywords.workspace = true
-publish = false
+publish = true
 
 [dependencies]
 rand = "0.8.5"
