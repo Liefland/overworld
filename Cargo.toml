@@ -1,3 +1,6 @@
+# current_version 0.2.2
+# use `bin/publish` to update the version.
+
 [package]
 name = "overworld"
 description = "Metapackage library for adding game systems useful for incremental, RPG, and management games"
@@ -12,7 +15,7 @@ keywords.workspace = true
 publish = true
 
 [dependencies]
-overworld_components = { version = "0.1.0", path = "components" }
+overworld_components = { version = "0.2.2", path = "components" }
 
 [features]
 default = ["serde"]
@@ -27,9 +30,9 @@ members = [
 ]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.2.2"
 edition = "2021"
-license= "MIT OR Apache-2.0"
+license = "MIT OR Apache-2.0"
 authors = [
     "Zarthus <zarthus@liefland.net>",
     "Overworld Team <https://github.com/orgs/Liefland/teams/overworld>",
@@ -37,5 +40,5 @@ authors = [
 ]
 repository = "https://github.com/Liefland/overworld"
 homepage = "https://github.com/Liefland/overworld"
-categories = ["game development", "mathematics", "text processing"]
+categories = ["game-development", "mathematics", "text-processing"]
 keywords = ["game", "rpg", "incremental", "management"]
