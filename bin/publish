@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# This script is used to publish the package to cargo.
+#
+
+set -e
+
+new_version=$1
+
+if [ -z "$new_version" ]; then
+    echo "Usage: $0 <new-version>"
+    exit 1
+fi
+
+old_version=$(head -1 Cargo.toml | awk '{ print $3 }')
+
+echo "Old version: $old_version, new version: $new_version"
+
+# Update the version in Cargo.toml
+sed -i "s/version = \"$old_version\"/version = \"$new_version\"/" Cargo.toml
+sed -i "s/current_version $old_version/current_version $new_version/" Cargo.toml
+
+echo "Entering 'git diff' to see if all is well."
+git diff
+
+echo "Attempting a cargo build"
+cargo build --examples
+
+echo "Next step - will commit, tag, and push"
+
+set -x
+git commit -am "release: Version $new_version"
+git tag -s -a "release/v$new_version" -m "Version $new_version" -m "See https://github.com/Liefland/overworld/blob/main/CHANGELOG.md for a list of all changes."
+echo "Tagging with v$new_version"
+
+if [ "$2" == "--force" ]; then
+    git push --follow-tags
+else
+  read -r -p "The next step is to push, the CI will handle the rest. Continue? [y/N]" response
+
+  if [[ "$response" =~ ^[yY] ]]; then
+    git push --follow-tags
+    echo "Pushed tag v$new_version"
+    echo "Please keep an eye on https://github.com/Liefland/overworld/actions to see if the build succeeds."
+  else
+    echo "Will not automatically push."
+    echo "Please run 'git push --tags' to push the tag and continue the release"
+    exit 0
+  fi
+fi

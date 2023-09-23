@@ -1,0 +1,34 @@
+name: Rust
+
+on:
+  tags:
+    - release/v*
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: cargo build
+      - name: Build Examples
+        run: cargo build --examples
+      - name: Build Featureless
+        run: cargo build --no-default-features
+      - name: Run tests
+        run: cargo test
+      - name: Cargo check
+        run: cargo check
+
+      - name: Authenticate
+        run: cargo login ${{ secrets.CARGO_PUBLISH_TOKEN }}
+      - name: Publish Components
+        run:
+          - cd components
+          - cargo publish
+      - name: Publish Metapackage
+        run:
+          - cargo publish
