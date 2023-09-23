@@ -45,14 +45,10 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        component: ["components", "."]
     steps:
       - uses: actions/checkout@v3
       - name: Lint
         uses: giraffate/clippy-action@v1
-        working-directory: ${{ matrix.component }}
 
   test:
     strategy:

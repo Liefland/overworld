@@ -79,6 +79,12 @@ impl ExperienceTracker {
     }
 }
 
+impl Default for ExperienceTracker {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::component::progression::experience::ExperienceTracker;
