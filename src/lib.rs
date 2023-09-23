@@ -1,1 +1,1 @@
-pub mod component;
+pub use overworld_components::component;

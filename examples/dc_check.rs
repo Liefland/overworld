@@ -1,5 +1,5 @@
-use incr_lib::component::difficulty::DifficultyClass;
-use incr_lib::component::roll::Dice;
+use overworld::component::difficulty::DifficultyClass;
+use overworld::component::roll::Dice;
 
 fn main() {
     let d20 = Dice::group(1, 20);

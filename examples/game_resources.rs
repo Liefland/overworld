@@ -1,4 +1,4 @@
-use incr_lib::component::resource::{GameResource, Resource};
+use overworld::component::resource::{GameResource, Resource};
 
 fn main() {
     let resource: GameResource = GameResource::new("Money".to_string(), 100);

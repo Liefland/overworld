@@ -1,4 +1,4 @@
-# incr_lib
+# overworld
 
 A library of incremental game / management related reusable components.
 

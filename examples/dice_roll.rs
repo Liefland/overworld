@@ -1,4 +1,4 @@
-use incr_lib::component::roll::{Dice, Die};
+use overworld::component::roll::{Dice, Die};
 
 fn main() {
     {
