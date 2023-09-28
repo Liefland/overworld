@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# This script is used to format every package.
+#
+
+set -e
+
+bin/for_each "Testing" cargo test

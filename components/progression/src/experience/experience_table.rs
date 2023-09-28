@@ -1,4 +1,4 @@
-use crate::component::progression::LevelUpTable;
+use crate::LevelUpTable;
 use std::ops::Index;
 
 /// A traditional Experience-based Level Up Table
@@ -95,8 +95,8 @@ impl ExperienceLevelUpTable {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::progression::experience::ExperienceLevelUpTable;
-    use crate::component::progression::LevelUpTable;
+    use crate::experience::ExperienceLevelUpTable;
+    use crate::LevelUpTable;
 
     fn new_experience_level_up_table() -> ExperienceLevelUpTable {
         ExperienceLevelUpTable::named("Test".to_string(), vec![1, 10, 50, 100])

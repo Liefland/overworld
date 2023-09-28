@@ -1,6 +1,6 @@
 [package]
-name = "overworld_components"
-description = "A library for adding game systems useful for incremental and management games"
+name = "overworld_incremental"
+description = "Overworld Incremental Library - Tools for incremental games"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true

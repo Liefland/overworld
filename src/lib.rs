@@ -1,11 +1,14 @@
 #[cfg(feature = "counter")]
-pub use overworld_components::component::counter;
+pub use overworld_incremental::counter;
+
 #[cfg(feature = "progress")]
-pub use overworld_components::component::progress;
-#[cfg(feature = "progression")]
-pub use overworld_components::component::progression;
+pub use overworld_incremental::component::progress;
+
 #[cfg(feature = "resource")]
-pub use overworld_components::component::resource;
+pub use overworld_resource::resource;
+
+#[cfg(feature = "progression")]
+pub use overworld_progression;
 
 #[cfg(feature = "difficulty")]
 pub use overworld_dice::difficulty;

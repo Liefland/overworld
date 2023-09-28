@@ -87,7 +87,7 @@ impl Default for ExperienceTracker {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::progression::experience::ExperienceTracker;
+    use crate::experience::ExperienceTracker;
 
     #[test]
     fn test_experience_tracker() {

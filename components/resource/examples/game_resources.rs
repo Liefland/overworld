@@ -1,4 +1,4 @@
-use overworld_components::component::resource::{GameResource, Resource};
+use overworld_resource::resource::{GameResource, Resource};
 
 fn main() {
     let resource: GameResource = GameResource::new("Money".to_string(), 100);

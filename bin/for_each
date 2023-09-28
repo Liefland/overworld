@@ -12,7 +12,7 @@ shift
 echo "$name . with '$@'"
 $@
 
-for path in $(find . -mindepth 1 -maxdepth 1 -type d); do
+for path in $(find ./components -mindepth 1 -maxdepth 1 -type d); do
     if [[ ! -e "$path/Cargo.toml" ]]; then
         continue
     fi

@@ -1,4 +1,4 @@
-# current_version 0.3.0
+# current_version 0.4.0
 # use `bin/publish` to update the version.
 
 [package]
@@ -16,25 +16,43 @@ readme.workspace = true
 publish.workspace = true
 
 [dependencies]
-overworld_components = { version = "0.3.0", path = "components" }
-overworld_dice = { version = "0.3.0", path = "dice" }
+overworld_dice = { version = "0.4.0", path = "components/dice" }
+overworld_progression = { version = "0.4.0", path = "components/progression" }
+overworld_incremental = { version = "0.4.0", path = "components/incremental" }
+overworld_resource = { version = "0.4.0", path = "components/resource" }
 
 [features]
 default = [
     "serde",
-    "progress",
-    "progression",
     "dice",
     "counter",
 ]
 all = [
-    "default"
+    "default",
+    "rpg",
+    "management",
+    "incremental"
 ]
-serde = ["overworld_components/serde", "overworld_dice/serde"]
-progression = []
-progress = []
+serde = [
+    "overworld_incremental/serde",
+    "overworld_dice/serde",
+    "overworld_progression/serde",
+    "overworld_resource/serde"
+]
+
+# virtual component: rpg - this component is an alias for features useful in RPGs
+rpg = ["dice", "progression", "progress", "resource"]
+# virtual component: management - this component is an alias for features useful in management games
+management = ["resource"]
+
+# component: incremental - features useful for incremental games + main package
+incremental = ["counter", "progress", "resource"]
 counter = []
-resource = []
+progress = []
+
+resource = [] # enable component 'resource'
+progression = [] # enable component 'progression'
+
 # component: dice
 dice = ["roll", "difficulty"]
 difficulty = ["roll"]
@@ -43,13 +61,8 @@ roll = []
 [badges]
 maintenance = { status = "actively-developed" }
 
-[workspace]
-members = [
-    "components"
-]
-
 [workspace.package]
-version = "0.3.0"
+version = "0.4.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 authors = [

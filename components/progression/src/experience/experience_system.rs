@@ -1,5 +1,5 @@
-use crate::component::progression::experience::{ExperienceLevelUpTable, ExperienceTracker};
-use crate::component::progression::LevelUpTable;
+use crate::experience::{ExperienceLevelUpTable, ExperienceTracker};
+use crate::LevelUpTable;
 
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
@@ -49,8 +49,8 @@ impl ExperienceSystem {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::progression::experience::experience_system::ExperienceSystem;
-    use crate::component::progression::experience::{ExperienceLevelUpTable, ExperienceTracker};
+    use crate::experience::experience_system::ExperienceSystem;
+    use crate::experience::{ExperienceLevelUpTable, ExperienceTracker};
 
     fn new_experience_level_up_system() -> ExperienceSystem {
         let tracker = ExperienceTracker::new();

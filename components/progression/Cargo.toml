@@ -1,6 +1,6 @@
 [package]
-name = "overworld_dice"
-description = "Overworld library - Dice components"
+name = "overworld_progression"
+description = "Overworld Progression Library - Experience, Milestone and Level progression"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true

@@ -3,6 +3,7 @@ use std::sync::atomic::AtomicU64;
 use std::sync::atomic::Ordering::Relaxed;
 
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct GameResource {
     pub resource_name: String,
     pub resource_value: AtomicU64,
@@ -68,7 +69,7 @@ impl Display for GameResource {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::resource::{GameResource, Resource};
+    use crate::resource::{GameResource, Resource};
 
     #[test]
     fn test_resource() {
