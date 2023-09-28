@@ -30,10 +30,18 @@ name = "overworld"
 version = "0.2.2"
 dependencies = [
  "overworld_components",
+ "overworld_dice",
 ]
 
 [[package]]
 name = "overworld_components"
+version = "0.2.2"
+dependencies = [
+ "serde",
+]
+
+[[package]]
+name = "overworld_dice"
 version = "0.2.2"
 dependencies = [
  "rand",

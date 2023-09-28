@@ -52,7 +52,7 @@ impl Display for Die {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::roll::Die;
+    use crate::roll::Die;
 
     #[test]
     fn test_range() {

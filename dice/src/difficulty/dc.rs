@@ -1,5 +1,5 @@
-use crate::component::difficulty::RollStatus;
-use crate::component::roll::Dice;
+use crate::difficulty::RollStatus;
+use crate::roll::Dice;
 
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
@@ -79,15 +79,15 @@ impl DifficultyClass {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::difficulty::{DifficultyClass, RollStatus};
-    use crate::component::roll::Dice;
+    use crate::difficulty::{DifficultyClass, RollStatus};
+    use crate::roll::Dice;
 
     #[test]
     fn test_dc_roll_success() {
-        let always_sucess = DifficultyClass::new(1);
+        let always_success = DifficultyClass::new(1);
         let dice = Dice::group(1, 20);
 
-        let result = always_sucess.roll(dice);
+        let result = always_success.roll(dice);
 
         assert!(result.success);
         assert_eq!(result.dc, 1);

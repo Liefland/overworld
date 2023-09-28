@@ -1,4 +1,4 @@
-use overworld::component::roll::{Dice, Die};
+use overworld_dice::roll::{Dice, Die};
 
 fn main() {
     {

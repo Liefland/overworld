@@ -17,10 +17,28 @@ publish.workspace = true
 
 [dependencies]
 overworld_components = { version = "0.2.2", path = "components" }
+overworld_dice = { version = "0.2.2", path = "dice" }
 
 [features]
-default = ["serde"]
-serde = ["overworld_components/serde"]
+default = [
+    "serde",
+    "progress",
+    "progression",
+    "dice",
+    "counter",
+]
+all = [
+    "default"
+]
+serde = ["overworld_components/serde", "overworld_dice/serde"]
+progression = []
+progress = []
+counter = []
+resource = []
+# component: dice
+dice = ["roll", "difficulty"]
+difficulty = ["roll"]
+roll = []
 
 [badges]
 maintenance = { status = "actively-developed" }
@@ -45,3 +63,8 @@ categories = ["game-development", "mathematics", "text-processing"]
 keywords = ["game", "rpg", "incremental", "management"]
 readme = "README.md"
 publish = true
+
+[[example]]
+name = "difficulty_check"
+path = "examples/dice.rs"
+required-features = ["dice"]

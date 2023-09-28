@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# This script is used to build every package.
+#
+
+set -e
+
+function build_all() {
+  cargo build
+  cargo build --examples
+  cargo build --no-default-features
+}
+
+build_all
+
+for path in $(find . -mindepth 1 -maxdepth 1 -type d); do
+    if [[ ! -e "$path/Cargo.toml" ]]; then
+        echo "No Cargo.toml in $path"
+        continue
+    fi
+
+    echo "Building $path"
+    pushd $path
+       build_all
+    popd
+done

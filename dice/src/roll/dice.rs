@@ -1,4 +1,4 @@
-use crate::component::roll::die::Die;
+use crate::roll::die::Die;
 use rand::Rng;
 use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
@@ -174,8 +174,8 @@ impl Display for Dice {
 
 #[cfg(test)]
 mod tests {
-    use crate::component::roll::dice::Dice;
-    use crate::component::roll::die::Die;
+    use crate::roll::dice::Dice;
+    use crate::roll::die::Die;
 
     #[test]
     fn test_range() {

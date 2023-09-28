@@ -1,4 +1,4 @@
-use overworld::component::progression::experience::ExperienceSystem;
+use overworld_components::component::progression::experience::ExperienceSystem;
 
 fn main() {
     let mut system = ExperienceSystem::simple(24, vec![25, 100, 1000, 2500, 10000]);
