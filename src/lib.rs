@@ -7,7 +7,7 @@ pub use overworld_incremental::progress;
 pub use overworld_resource::resource;
 
 #[cfg(feature = "progression")]
-pub use overworld_progression;
+pub use overworld_progression as progression;
 
 #[cfg(feature = "difficulty")]
 pub use overworld_dice::difficulty;

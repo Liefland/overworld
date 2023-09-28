@@ -27,7 +27,7 @@ checksum = "9cdc71e17332e86d2e1d38c1f99edcb6288ee11b815fb1a4b049eaa2114d369b"
 
 [[package]]
 name = "overworld"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "overworld_dice",
  "overworld_incremental",
@@ -37,7 +37,7 @@ dependencies = [
 
 [[package]]
 name = "overworld_dice"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "rand",
  "serde",
@@ -45,14 +45,14 @@ dependencies = [
 
 [[package]]
 name = "overworld_incremental"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "overworld_progression"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "rand",
  "serde",
@@ -60,7 +60,7 @@ dependencies = [
 
 [[package]]
 name = "overworld_resource"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "serde",
 ]
