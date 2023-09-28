@@ -25,7 +25,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        component: ["components", "dice", "."]
+        component:
+          - "components/dice"
+          - "components/incremental"
+          - "components/progression"
+          - "components/resource"
+          - "."
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -36,7 +41,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        component: ["components", "dice", "."]
+        component:
+          - "components/dice"
+          - "components/incremental"
+          - "components/progression"
+          - "components/resource"
+          - "."
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -53,7 +63,12 @@ jobs:
   test:
     strategy:
       matrix:
-        component: ["components", "dice", "."]
+        component:
+          - "components/dice"
+          - "components/incremental"
+          - "components/progression"
+          - "components/resource"
+          - "."
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -72,7 +87,11 @@ jobs:
     needs: [build, examples, no_features, test, lint]
     strategy:
       matrix:
-        component: ["components", "dice"]
+        component:
+          - "components/dice"
+          - "components/incremental"
+          - "components/progression"
+          - "components/resource"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
