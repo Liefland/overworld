@@ -25,7 +25,9 @@ overworld_resource = { version = "0.4.0", path = "components/resource" }
 default = [
     "serde",
     "dice",
-    "counter",
+    "resource",
+    "progression",
+    "progress"
 ]
 all = [
     "default",

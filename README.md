@@ -26,6 +26,7 @@ You can `cargo add overworld_COMPONENTNAME` (`cargo add overworld_progression`) 
 
 ```rust
 use overworld::roll::Die;
+// overworld_dice::roll:Die; if not using metapackage
 
 fn main() {
     let d6 = Die::new(6);

@@ -1,8 +1,7 @@
 #[cfg(feature = "counter")]
 pub use overworld_incremental::counter;
-
 #[cfg(feature = "progress")]
-pub use overworld_incremental::component::progress;
+pub use overworld_incremental::progress;
 
 #[cfg(feature = "resource")]
 pub use overworld_resource::resource;
