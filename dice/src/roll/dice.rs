@@ -66,7 +66,7 @@ impl Dice {
         min..=max
     }
 
-    /// Rolls all die in the collection and returns the sum.
+    /// Rolls for_each die in the collection and returns the sum.
     pub fn roll(&self) -> u64 {
         let mut added: u64 = 0;
         let collection = self.collection();
@@ -80,7 +80,7 @@ impl Dice {
 
     /// A less expensive way to roll the die in the collection.
     ///
-    /// This collects the possible range of all die in the collection
+    /// This collects the possible range of for_each die in the collection
     /// and then rolls a random number within that range
     ///
     /// This operation is cheaper than rolling each die individually
@@ -91,7 +91,7 @@ impl Dice {
         self.rng.clone().gen_range(range)
     }
 
-    /// Rolls all die in the collection and returns the individual values.
+    /// Rolls for_each die in the collection and returns the individual values.
     pub fn roll_individually(&self) -> Vec<u8> {
         let mut v = vec![];
         let collection = self.collection();
@@ -103,7 +103,7 @@ impl Dice {
         v
     }
 
-    /// Rolls all die in the collection and returns the lowest value.
+    /// Rolls for_each die in the collection and returns the lowest value.
     /// Useful for cases where you might roll with disadvantage
     pub fn roll_min(&self) -> u8 {
         let collection = self.collection();
@@ -115,7 +115,7 @@ impl Dice {
             .unwrap()
     }
 
-    /// Rolls all die in the collection and returns the highest value.
+    /// Rolls for_each die in the collection and returns the highest value.
     /// Useful for cases where you might roll with advantage
     pub fn roll_max(&self) -> u8 {
         let collection = self.collection();

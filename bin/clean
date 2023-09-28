@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# This script is used to clean every package.
+#
+
+set -e
+
+bin/for_each "Cleaning" cargo clean

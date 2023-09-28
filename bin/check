@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# This script is used to check every package.
+#
+
+set -e
+
+bin/for_each "Checking" cargo check

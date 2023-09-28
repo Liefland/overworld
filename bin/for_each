@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Loop over each package
+#
+# Usage: $0 "Description" COMMANDS...
+
+set -e
+
+name=$1
+shift
+
+echo "$name . with '$@'"
+$@
+
+for path in $(find . -mindepth 1 -maxdepth 1 -type d); do
+    if [[ ! -e "$path/Cargo.toml" ]]; then
+        continue
+    fi
+
+    echo "$name $path with '$@'"
+    pushd $path > /dev/null
+       $@
+    popd > /dev/null
+done

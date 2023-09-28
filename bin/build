@@ -5,22 +5,6 @@
 
 set -e
 
-function build_all() {
-  cargo build
-  cargo build --examples
-  cargo build --no-default-features
-}
-
-build_all
-
-for path in $(find . -mindepth 1 -maxdepth 1 -type d); do
-    if [[ ! -e "$path/Cargo.toml" ]]; then
-        echo "No Cargo.toml in $path"
-        continue
-    fi
-
-    echo "Building $path"
-    pushd $path
-       build_all
-    popd
-done
+bin/for_each "Build (default)" cargo build
+bin/for_each "Build (examples)" cargo build --examples
+bin/for_each "Build (no features)" cargo build --no-default-features
