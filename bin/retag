@@ -8,7 +8,7 @@ version=$(head -1 Cargo.toml | awk '{ print $3 }')
 git tag -d "release/v$version" || true
 git tag -s -a "release/v$version" -m "Version $version" -m "See https://github.com/Liefland/overworld/blob/main/CHANGELOG.md for a list of all changes."
 
-if [ "$2" == "--force" ]; then
+if [ "$1" == "--force" ]; then
     git push --tags --force
 else
   read -r -p "The next step is to push, the CI will handle the rest. Continue? [y/N]" response
@@ -19,7 +19,7 @@ else
     echo "Please keep an eye on https://github.com/Liefland/overworld/actions to see if the build succeeds."
   else
     echo "Will not automatically push."
-    echo "Please run 'git push --tags' to push the tag and continue the release"
+    echo "Please run 'git push --tags --force' to push the tag and continue the release"
     exit 0
   fi
 fi
