@@ -16,10 +16,11 @@ readme.workspace = true
 publish.workspace = true
 
 [dependencies]
-overworld_dice = { version = "0.4.0", path = "components/dice" }
-overworld_progression = { version = "0.4.0", path = "components/progression" }
-overworld_incremental = { version = "0.4.0", path = "components/incremental" }
-overworld_resource = { version = "0.4.0", path = "components/resource" }
+overworld_dice = { path = "components/dice" }
+overworld_progression = { path = "components/progression" }
+overworld_incremental = { path = "components/incremental" }
+overworld_resource = { path = "components/resource" }
+overworld_5e = { path = "components/5e" }
 
 [features]
 default = [
@@ -39,13 +40,16 @@ serde = [
     "overworld_incremental/serde",
     "overworld_dice/serde",
     "overworld_progression/serde",
-    "overworld_resource/serde"
+    "overworld_resource/serde",
+    "overworld_5e/serde"
 ]
 
 # virtual component: rpg - this component is an alias for features useful in RPGs
 rpg = ["dice", "progression", "progress", "resource"]
 # virtual component: management - this component is an alias for features useful in management games
 management = ["resource"]
+
+# component: 5e
 
 # component: incremental - features useful for incremental games + main package
 incremental = ["counter", "progress", "resource"]

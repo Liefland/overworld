@@ -30,6 +30,7 @@ jobs:
           - "components/incremental"
           - "components/progression"
           - "components/resource"
+          - "components/5e"
           - "."
     steps:
       - uses: actions/checkout@v3
@@ -46,6 +47,7 @@ jobs:
           - "components/incremental"
           - "components/progression"
           - "components/resource"
+          - "components/5e"
           - "."
     steps:
       - uses: actions/checkout@v3
@@ -68,6 +70,7 @@ jobs:
           - "components/incremental"
           - "components/progression"
           - "components/resource"
+          - "components/5e"
           - "."
     runs-on: ubuntu-latest
     steps:
@@ -92,6 +95,7 @@ jobs:
           - "components/incremental"
           - "components/progression"
           - "components/resource"
+          - "components/5e"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
