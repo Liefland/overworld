@@ -22,7 +22,7 @@ optional = true
 features = ["derive"]
 
 [dependencies.strum_macros]
-version = "0.25.2"
+version = "0.25.3"
 optional = true
 
 [dependencies.serde]
