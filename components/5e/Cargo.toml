@@ -17,7 +17,7 @@ overworld_dice = { path = "../dice" }
 
 # Enables better tooling for Enums
 [dependencies.strum]
-version = "0.25.0"
+version = "0.26.1"
 optional = true
 features = ["derive"]
 
