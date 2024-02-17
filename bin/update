@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# This script is used to update every package.
+#
+
+set -e
+
+bin/for_each "Update" cargo update
