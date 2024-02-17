@@ -17,7 +17,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         run: cargo build
 
@@ -26,6 +26,7 @@ jobs:
     strategy:
       matrix:
         component:
+          - "components/affinity"
           - "components/dice"
           - "components/incremental"
           - "components/progression"
@@ -33,16 +34,17 @@ jobs:
           - "components/5e"
           - "."
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         working-directory: ${{ matrix.component }}
-        run: cargo build --examples
+        run: cargo build --examples --all-features
 
   no_features:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         component:
+          - "components/affinity"
           - "components/dice"
           - "components/incremental"
           - "components/progression"
@@ -50,7 +52,7 @@ jobs:
           - "components/5e"
           - "."
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         working-directory: ${{ matrix.component }}
         run: cargo build --no-default-features
@@ -58,7 +60,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lint
         uses: giraffate/clippy-action@v1
 
@@ -66,6 +68,7 @@ jobs:
     strategy:
       matrix:
         component:
+          - "components/affinity"
           - "components/dice"
           - "components/incremental"
           - "components/progression"
@@ -74,13 +77,13 @@ jobs:
           - "."
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build
         working-directory: ${{ matrix.component }}
         run: cargo build --verbose
       - name: Run tests
         working-directory: ${{ matrix.component }}
-        run: cargo test --verbose
+        run: cargo test --verbose --all-features
       - name: Cargo check
         working-directory: ${{ matrix.component }}
         run: cargo check
@@ -91,6 +94,7 @@ jobs:
     strategy:
       matrix:
         component:
+          - "components/affinity"
           - "components/dice"
           - "components/incremental"
           - "components/progression"
@@ -98,7 +102,7 @@ jobs:
           - "components/5e"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Authenticate
         run: cargo login ${{ secrets.CARGO_PUBLISH_TOKEN }}
       - name: Publish Dependency
@@ -110,7 +114,7 @@ jobs:
     needs: publish_dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Authenticate
         run: cargo login ${{ secrets.CARGO_PUBLISH_TOKEN }}
       - name: Publish

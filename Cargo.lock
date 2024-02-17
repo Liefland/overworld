@@ -36,6 +36,7 @@ name = "overworld"
 version = "0.4.2"
 dependencies = [
  "overworld_5e",
+ "overworld_affinity",
  "overworld_dice",
  "overworld_incremental",
  "overworld_progression",
@@ -50,6 +51,14 @@ dependencies = [
  "serde",
  "strum",
  "strum_macros",
+]
+
+[[package]]
+name = "overworld_affinity"
+version = "0.4.2"
+dependencies = [
+ "rand",
+ "serde",
 ]
 
 [[package]]

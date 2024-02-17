@@ -1,0 +1,40 @@
+[package]
+name = "overworld_affinity"
+description = "Overworld Affinity Library - Affinity and Multipliers"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+categories.workspace = true
+keywords.workspace = true
+readme.workspace = true
+publish.workspace = true
+
+[dependencies.serde]
+version = "1.0.196"
+optional = true
+features = ["derive"]
+
+[dependencies.rand]
+version = "0.8.5"
+optional = true
+
+[features]
+default = ["serde"]
+common = ["common_rps", "common_three_elements", "common_elements"]
+common_rps = []
+common_elements = []
+common_three_elements = []
+color_hints = []
+
+[[example]]
+name = "rock_paper_scissors"
+path = "examples/rock_paper_scissors_game.rs"
+required-features = ["common_rps", "rand"]
+
+[[example]]
+name = "elements"
+path = "examples/elements_game.rs"
+required-features = ["common_elements", "color_hints", "rand"]

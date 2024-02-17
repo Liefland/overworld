@@ -6,5 +6,5 @@
 set -e
 
 bin/for_each "Build (default)" cargo build
-bin/for_each "Build (examples)" cargo build --examples
+bin/for_each "Build (examples)" cargo build --examples --all-features
 bin/for_each "Build (no features)" cargo build --no-default-features

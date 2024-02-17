@@ -16,6 +16,7 @@ readme.workspace = true
 publish.workspace = true
 
 [dependencies]
+overworld_affinity = { path = "components/affinity" }
 overworld_dice = { path = "components/dice" }
 overworld_progression = { path = "components/progression" }
 overworld_incremental = { path = "components/incremental" }
@@ -34,20 +35,23 @@ all = [
     "default",
     "rpg",
     "management",
-    "incremental"
+    "incremental",
+    "affinity",
 ]
 serde = [
     "overworld_incremental/serde",
     "overworld_dice/serde",
     "overworld_progression/serde",
     "overworld_resource/serde",
-    "overworld_5e/serde"
+    "overworld_5e/serde",
+    "overworld_affinity/serde"
 ]
 
 # virtual component: rpg - this component is an alias for features useful in RPGs
 rpg = ["dice", "progression", "progress", "resource"]
 # virtual component: management - this component is an alias for features useful in management games
 management = ["resource"]
+affinity = []
 
 # component: 5e
 

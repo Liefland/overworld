@@ -13,3 +13,6 @@ pub use overworld_progression as progression;
 pub use overworld_dice::difficulty;
 #[cfg(feature = "roll")]
 pub use overworld_dice::roll;
+
+#[cfg(feature = "affinity")]
+pub use overworld_affinity as affinity;
