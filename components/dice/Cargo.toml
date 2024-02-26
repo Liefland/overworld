@@ -16,7 +16,7 @@ publish.workspace = true
 rand = "0.8.5"
 
 [dependencies.serde]
-version = "1.0.196"
+version = "1.0.197"
 optional = true
 features = ["derive"]
 
